@@ -15,10 +15,13 @@ app.get('/admin', (req, res) => {
     res.render('admin', { mang: arrAds });
 });
 
+let currentAd;
+
 io.on('connection', socket => {
+    if (currentAd) socket.emit('NEW_AD', currentAd);
     socket.on('ADMIN_CHANGE_AD', image => {
-        const ad = arrAds.find(e => e.image === image);
-        socket.broadcast.emit('NEW_AD', ad);
+        currentAd = arrAds.find(e => e.image === image);
+        socket.broadcast.emit('NEW_AD', currentAd);
     });
 });
 

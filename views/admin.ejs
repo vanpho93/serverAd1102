@@ -25,12 +25,12 @@
     <body>
         <select id="sl-quangcao">
             <option>--Chon 1 quang cao--</option>
-            <option value="facebook.jpg">Facebook</option>
-            <option value="google.png">Google</option>
-            <option value="instagram.png">Instagram</option>
+            <% mang.forEach(e => { %>
+                <option value="<%= e.image %>"><%= e.title %></option>
+            <% }); %>
         </select>
         <button id="btnSend">Send</button>
         <hr />
-        <img src="google.png" id="img-hinh"/>
+        <img id="img-hinh" width="300"/>
     </body>
 </html>

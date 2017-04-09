@@ -17,7 +17,8 @@ app.get('/admin', (req, res) => {
 
 io.on('connection', socket => {
     socket.on('ADMIN_CHANGE_AD', image => {
-        console.log(image);
+        const ad = arrAds.find(e => e.image === image);
+        socket.broadcast.emit('NEW_AD', ad);
     });
 });
 

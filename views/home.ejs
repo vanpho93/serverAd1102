@@ -8,13 +8,18 @@
     <script>
         const socket = io.connect();
         $(document).ready(() => {
-
+            socket.on('NEW_AD', ad => {
+                const adHtml = `<a href="http://${ad.link}"><img src="${ad.image}" width="300"/></a>`;
+                $('#div-quang-cao').html(adHtml);    
+            });
         });
     </script>
 </head>
 
 <body>
     <h1>KhoaPham Training</h1>
+    <div id="div-quang-cao">\
+    </div>
     <div class="main_content_detail width_common">
         <div class="block_timer_share">
             <div class="block_timer left txt_666">

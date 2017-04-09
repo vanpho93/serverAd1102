@@ -16,7 +16,9 @@ app.get('/admin', (req, res) => {
 });
 
 io.on('connection', socket => {
-    console.log(socket.id);
+    socket.on('ADMIN_CHANGE_AD', image => {
+        console.log(image);
+    });
 });
 
 //emit, on. on

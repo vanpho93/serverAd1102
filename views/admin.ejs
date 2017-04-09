@@ -11,6 +11,9 @@
                 $('#sl-quangcao').change(() => {
                     $('#img-hinh').attr('src', $('#sl-quangcao').val());
                 });
+                $('#btnSend').click(() => {
+                    socket.emit('ADMIN_CHANGE_AD', $('#sl-quangcao').val());
+                });
             });
         </script>
         <style>

@@ -12,7 +12,7 @@ server.listen(process.env.PORT || 3000, () => console.log('server started'));
 app.get('/', (req, res) => res.render('home'));
 
 app.get('/admin', (req, res) => {
-    res.render('admin');
+    res.render('admin', { mang: arrAds });
 });
 
 io.on('connection', socket => {
@@ -20,3 +20,17 @@ io.on('connection', socket => {
 });
 
 //emit, on. on
+class Ad {
+    constructor(title, image, link) {
+        this.title = title;
+        this.image = image;
+        this.link = link;
+    }
+}
+
+const arrAds = [
+    new Ad('Google', 'google.png', 'google.com'),
+    new Ad('Facebook', 'facebook.jpg', 'facebook.com'),
+    new Ad('Instagram', 'instagram.png', 'instagram.com'),
+    new Ad('Twitter', 'twitter.gif', 'twitter.com')
+];

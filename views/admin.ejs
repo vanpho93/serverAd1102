@@ -7,16 +7,30 @@
         <script>
             const socket = io.connect();
             $(document).ready(() => {
-                console.log('ready')
+                console.log('ready');
+                $('#sl-quangcao').change(() => {
+                    $('#img-hinh').attr('src', $('#sl-quangcao').val());
+                });
             });
         </script>
         <style>
             .red {
                 color: red;
             }
+            hr {
+                visibility: hidden;
+            }
         </style>
     </head>
     <body>
-        <h1>KhoaPham Training</h1>
+        <select id="sl-quangcao">
+            <option>--Chon 1 quang cao--</option>
+            <option value="facebook.jpg">Facebook</option>
+            <option value="google.png">Google</option>
+            <option value="instagram.png">Instagram</option>
+        </select>
+        <button id="btnSend">Send</button>
+        <hr />
+        <img src="google.png" id="img-hinh"/>
     </body>
 </html>
